@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/firstFragment">
+
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.example.terceraedad.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
+    <fragment
+        android:id="@+id/firstFragment"
+        android:name="com.example.terceraedad.FirstFragment"
+        android:label="fragment_first"
+        tools:layout="@layout/fragment_first" >
+        <action
+            android:id="@+id/action_firstFragment_to_secondFragment"
+            app:destination="@id/secondFragment"
+            app:enterAnim="@android:anim/slide_in_left" />
+        <action
+            android:id="@+id/action_firstFragment_to_thirdFragment"
+            app:destination="@id/thirdFragment"
+            app:enterAnim="@android:anim/slide_in_left" />
+        <action
+            android:id="@+id/action_firstFragment_to_fourthFragment"
+            app:destination="@id/fourthFragment"
+            app:enterAnim="@android:anim/slide_in_left" />
+        <action
+            android:id="@+id/action_firstFragment_to_fifthFragment"
+            app:destination="@id/fifthFragment"
+            app:enterAnim="@android:anim/slide_in_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/secondFragment"
+        android:name="com.example.terceraedad.SecondFragment"
+        android:label="fragment_second"
+        tools:layout="@layout/fragment_second" >
+        <action
+            android:id="@+id/action_secondFragment_to_sixthFragment"
+            app:destination="@id/sixthFragment"
+            app:enterAnim="@android:anim/slide_in_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/thirdFragment"
+        android:name="com.example.terceraedad.ThirdFragment"
+        android:label="fragment_third"
+        tools:layout="@layout/fragment_third" />
+    <fragment
+        android:id="@+id/fourthFragment"
+        android:name="com.example.terceraedad.FourthFragment"
+        android:label="fragment_fourth"
+        tools:layout="@layout/fragment_fourth" />
+    <fragment
+        android:id="@+id/fifthFragment"
+        android:name="com.example.terceraedad.FifthFragment"
+        android:label="fragment_fifth"
+        tools:layout="@layout/fragment_fifth" />
+    <fragment
+        android:id="@+id/sixthFragment"
+        android:name="com.example.terceraedad.SixthFragment"
+        android:label="fragment_sixth"
+        tools:layout="@layout/fragment_sixth" >
+        <argument
+            android:name="imagen"
+            app:argType="android.graphics.Bitmap" />
+    </fragment>
+</navigation>
