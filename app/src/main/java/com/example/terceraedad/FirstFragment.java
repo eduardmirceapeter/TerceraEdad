@@ -31,27 +31,28 @@ public class FirstFragment extends Fragment {
         // Obtener NavController
         NavController navController = Navigation.findNavController(requireActivity(), R.id.navHost);
 
+        //Cuando pulses el boton de la camara ira a la primera vista.
         camara.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 navController.navigate(FirstFragmentDirections.actionFirstFragmentToSecondFragment());
             }
         });
-
+        //Cuando pulses el boton de la llamar ira a la segunda vista.
         llamar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 navController.navigate(FirstFragmentDirections.actionFirstFragmentToThirdFragment());
             }
         });
-
+        //Cuando pulses el boton de la alarma ira a la tercera vista.
         alarma.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 navController.navigate(FirstFragmentDirections.actionFirstFragmentToFourthFragment());
             }
         });
-
+        //Cuando pulses el boton de evento ira a la cuarta vista.
         evento.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

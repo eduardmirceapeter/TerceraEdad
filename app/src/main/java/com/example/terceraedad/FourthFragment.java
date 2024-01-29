@@ -35,9 +35,12 @@ public class FourthFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        //DECLARAMOS COMPONENTES
         view=inflater.inflate(R.layout.fragment_fourth, container, false);
         btnSetAlarm = view.findViewById(R.id.button);
 
+        //SI EL BOTON SE PULSA QUE HAGA LA ACCION DEL METODO INDICADO
         btnSetAlarm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,20 +52,22 @@ public class FourthFragment extends Fragment {
         return view;
     }
 
+    //AQUI SE RECOGE LA HORA Y EL MINUTO INTRODUCIDO
     private void showTimePickerDialog() {
         TimePickerDialog timePickerDialog = new TimePickerDialog(requireContext(),
                 new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                        selectedHour = hourOfDay;
-                        selectedMinute = minute;
+                        selectedHour = hourOfDay; //HORA
+                        selectedMinute = minute; //MINTUO
 
-                        setAlarm(selectedHour, selectedMinute);
+                        setAlarm(selectedHour, selectedMinute); //Y SE LO PASAMOS AL METODO
                     }
                 }, 12, 0, true); // Valores iniciales (12:00 PM)
         timePickerDialog.show();
     }
 
+    //AQUI HACEMOS QUE A LA HORA PUESTA SUENE LA ALARMA MOSTRANDO UN MENSAJE
     private void setAlarm(int hour, int minute) {
         AlarmManager alarmManager = (AlarmManager) requireContext().getSystemService(Context.ALARM_SERVICE);
 
@@ -76,7 +81,7 @@ public class FourthFragment extends Fragment {
 
         long alarmTime = calendar.getTimeInMillis();
 
-        // Ajusta aquí según tus necesidades.
+
         alarmManager.set(AlarmManager.RTC_WAKEUP, alarmTime, pendingIntent);
     }
 }

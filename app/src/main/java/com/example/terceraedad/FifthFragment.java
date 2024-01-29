@@ -33,6 +33,8 @@ public class FifthFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        //DECLARAMOS COMPONENTES
         view = inflater.inflate(R.layout.fragment_fifth, container, false);
         CalendarView calendarView = view.findViewById(R.id.calendarView2);
         recyclerViewEvents = view.findViewById(R.id.recyclerView2);
@@ -41,9 +43,12 @@ public class FifthFragment extends Fragment {
         editText = view.findViewById(R.id.editTextText);
         button = view.findViewById(R.id.button8);
 
+        //SETEAMOS EL ADAPTER DEL RECYCLERVIEW
         recyclerViewEvents.setLayoutManager(new LinearLayoutManager(requireContext()));
         recyclerViewEvents.setAdapter(eventAdapter);
 
+        //AQUI UNA VEZ SELECIONADO EL DIA PASA A ESCRIBIR UN TITULO DE EVENTO
+        //Y LUEGO SE AÑADE EN EL RECYLCERVIEW
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {

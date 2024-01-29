@@ -28,31 +28,22 @@ public class SecondFragment extends Fragment {
     ImageView imageView;
     NavController navController;
 
-
     private static final int REQUEST_CODE = 22;
-
-    public static SecondFragment newInstance(Bitmap bitmap) {
-        
-        Bundle args = new Bundle();
-        
-        SecondFragment fragment = new SecondFragment();
-        fragment.setArguments(args);
-        return fragment;
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        //DECLARAMOS COMPÒNENTES
         view = inflater.inflate(R.layout.fragment_second, container, false);
         imageView = view.findViewById(R.id.imageView3);
 
-
+        //CUANDO LE DE A LA IMAGEN ESTA PASARA A ABRIRSE LA CAMARA
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent camara = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(camara,REQUEST_CODE);
+                Intent camara = new Intent(MediaStore.ACTION_IMAGE_CAPTURE); //ACTIVIDAD DE LA CAMARA
+                startActivityForResult(camara, REQUEST_CODE); //AQUI HACE LA ACCION
 
             }
         });
@@ -60,10 +51,13 @@ public class SecondFragment extends Fragment {
         return view;
     }
 
+    //CUANDO HAGA LA FOTO ESTO LO QUE HARA SERA MANDARLO A LA SIGUIENTE VISTA PARA MOSTRAR LA FOTO
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        //RECOGEMOS LA IMAGEN
         Bitmap photo = (Bitmap) data.getExtras().get("data");
+        //Y LA MANDAMOS A LA OTRA VISTA
         navController = Navigation.findNavController(requireActivity(), R.id.navHost);
         navController.navigate(SecondFragmentDirections.actionSecondFragmentToSixthFragment(photo));
 

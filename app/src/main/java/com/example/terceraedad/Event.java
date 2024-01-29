@@ -1,6 +1,7 @@
 package com.example.terceraedad;
 
 public class Event {
+    //POJO
     private String title;
     private String fecha;
 

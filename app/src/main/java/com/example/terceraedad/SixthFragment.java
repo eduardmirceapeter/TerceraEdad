@@ -22,11 +22,11 @@ public class SixthFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
+        //DECLARAMOS COMPONENTES
         view = inflater.inflate(R.layout.fragment_sixth, container, false);
-
-
         imageView=view.findViewById(R.id.imageView2);
+
+        //SETEAMOS LA RECOGIDA DE LA FOTO DE LA PRIMERA VISTA (CAMARA)
         args = SixthFragmentArgs.fromBundle(getArguments());
         imageView.setImageBitmap(args.getImagen());
 
